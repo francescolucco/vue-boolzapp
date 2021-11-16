@@ -19,20 +19,13 @@ main{
    width: 100%;
    height: 100%;
 }
+/* MAIN-LEFT */
 .main-left{
    float: left;
    width: 30%;
    height: 100%;
    background-color: rosybrown;
 }
-.main-right{
-   float: left;
-   width: 70%;
-   height: 100%;
-   background-color: seagreen;
-}
-
-/* MAIN-LEFT */
 .main-top{
    padding: 15px;
    display: flex;
@@ -126,11 +119,15 @@ i{
    width: 100%;
    height: calc(100vh - 200px);
 }
-input{
+.search input{
    margin: 8px;
    height: 30px;
    width: calc(100% - 16px);
    border-radius: 3px;
+   padding-left: 60px;
+}
+.search input:focus{
+   padding-left: 60px;
 }
 .search{
    position: relative;
@@ -143,20 +140,90 @@ input{
 }
 ::placeholder{
    color: #a0a7aa;
-   padding-left: 60px;
 }
 .box-user-chat{
-   width: calc(100% - 15px);
+   width: 100%;
    height: calc(100vh - 246px);
    background-color: #ffffff;
    border-right: 1px solid #d6d6d6;
+   overflow: scroll;
 }
 .user-chat{
    padding: 10px;
+   border-top: 1px solid rgb(235, 227, 227);
 }
 .user-chat img{
    margin-left: 8px;
    margin-right: 15px;
    width: 65px;
    border-radius: 50%;
+   float: left;
+}
+.text-user-chat{
+   float: left;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: start;
+   margin: 0;
+}
+.text-user-chat p{
+   margin: 0;
+}
+.text-user-chat p:first-child{
+   padding-bottom: 5px;
+   padding-top: 2px;
+   font-weight: 600;
+   font-size: 15px;
+}
+.text-user-chat p:nth-child(2){
+   color: #a0a7aa;
+   font-size: 10px;
+}
+.data{
+   float: right;
+   color: #a0a7aa;
+   font-size: 10px;
+}
+
+
+/* MAIN RIGHT */
+.main-right{
+   float: left;
+   width: 70%;
+   height: 100%;
+}
+.main-r-center{
+   height: calc(100vh - 200px);
+   background-image: url(../img/mine.jpg);
+   overflow: scroll;
+   min-width: 700px;
+}
+.main-r-bottom{
+   padding: 15px;
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+   background-color: 
+   #f3eeea;
+   height: 80px;
+}
+.main-r-bottom input{
+   width: calc(100% - 16px);
+   height: 50px;
+   padding-left: 30px;
+   margin: 8px;
+   border-radius: 3px;
+}
+.main-r-bottom input:focus{
+   padding-left: 30px;
+}
+.main-r-bottom i{
+   font-size: 22px;
+   margin: 0 20px;
+   color: #6b7375;
+}
+
+.messagge{
+   width: ;
 }
