@@ -73,27 +73,39 @@ const app = new Vue ({
              name: 'Luisa',
              avatar: '_4',
              visible: true,
-             messages: [{
-                 date: '10/01/2020 15:30:55',
-                 message: 'Lo sai che ha aperto una nuova pizzeria?',
-                 status: 'sent'
-             },
-                 {
-                     date: '10/01/2020 15:50:00',
-                     message: 'Si, ma preferirei andare al cinema',
-                     status: 'received'
-                 }
+             messages: [
+               {
+               date: '10/01/2020 15:30:55',
+               message: 'Lo sai che ha apertouna nuova pizzeria?',
+               status: 'sent'
+               },
+               {
+                  date: '10/01/2020 15:50:00',
+                  message: 'Si, ma preferirei andare al cinema',
+                  status: 'received'
+               }
              ],
          },
       ],
       userActive: 0,
+      newMessage: '',
    },
    methods: {
       displayUser(index){
          this.userActive = index;
       },
-      displayMessages(){
-         
+      addMessage(newMessage, userActive){
+         const newSMS = 
+         {
+            date: new Date,
+            message: '',
+            status: 'sent'
+         };
+         newSMS.message = newMessage;
+
+         this.contacts[userActive].messages.push(newSMS);
+         console.log(this.contacts[userActive].messages);
+         this.newMessage = '';
       }
    }
 })
