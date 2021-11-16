@@ -9,7 +9,8 @@ const app = new Vue ({
              name: 'Michele',
              avatar: '_1',
              visible: true,
-             messages: [{
+             messages: [
+                {
                  date: '10/01/2020 15:30:55',
                  message: 'Hai portato a spasso il cane?',
                  status: 'sent'
@@ -87,6 +88,12 @@ const app = new Vue ({
       ],
       userActive: 0,
    },
-   // counterLastMsg: contacts[0].messages[messages.lenght - 1],
-
+   methods: {
+      displayUser(index){
+         this.userActive = index;
+      },
+      displayMessages(){
+         
+      }
+   }
 })

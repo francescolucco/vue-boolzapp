@@ -48,7 +48,8 @@
           <!-- **** Box da ciclare **** -->
             <div  
               v-for="(contact, index) in contacts"
-              class="user-chat">
+              class="user-chat"
+              @click="displayUser(index)">
               <img :src="`img/avatar${contact.avatar}.jpg`" alt="">
               <div class="text-user-chat">
                 <p>{{contact.name}}</p>
@@ -66,12 +67,14 @@
       </div>
 
       <div class="main-right">
-        <div class="main-top">
+        <div 
+        class="main-top">
           <div class="personal-user">
-            <img class="user-img" src="img/avatar_io.jpg" alt="Francesco Lucco">
+            <img class="user-img"  :src="`img/avatar${contacts[userActive].avatar}.jpg`" alt="">
+            <!-- <img class="user-img" :src="'img/avatar' + contacts[userActive].avatar + '.jpg'" :alt="contact.name"> -->
             <div class="contact-name">
-              <h5>Michele</h5>
-              <p>Ultimo accesso oggi alle {{new Date}}</p>
+              <h5>{{contacts[userActive].name}}</h5>
+              <p>Ultimo accesso oggi alle {{contacts[userActive].messages[contacts[userActive].messages.length - 1].date}}</p>
             </div>
           </div>
           <div class="top-icons">
@@ -80,12 +83,19 @@
             <i class="fa-solid fa-ellipsis-vertical"></i>
           </div>
         </div>
+
+        <!-- ***************************** -->
         <div class="main-r-center">
-          <div class="message received">
-            <p>Hai portato a casa il cane?</p>
-            <span class="data">11/30/2344 16:55:80</span>
+          <div 
+            v-for="(msg, index) in contacts[userActive].messages"
+            class="message"
+            :class="contacts[userActive].messages[index].status === sent ? 'received' : 'sent'">
+            <p>{{msg.message}}</p>
+            <span>{{msg.date}}</span>
           </div>
         </div>
+        <!-- ***************************** -->
+
         <div class="main-r-bottom">
           <i class="fa-regular fa-face-smile"></i>
           <input type="text" placeholder="Scrivi un messaggio">

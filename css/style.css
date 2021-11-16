@@ -43,10 +43,12 @@ main{
 .user-img{
    width: 55px;
    border-radius: 50%;
+   cursor: pointer;
 }
 h5{
    font-weight: 900;
    margin-left: 15px;
+   cursor: pointer;
 }
 .top-icons{
    display: flex;
@@ -56,6 +58,7 @@ h5{
 i{
    color: #b2b1b0;
    margin: 0 10px;
+   cursor: pointer;
 }
 .contact-name{
    height: 100%;
@@ -67,6 +70,7 @@ i{
 }
 .contact-name h5, .contact-name p, .new-notifications-text p{
    margin: 0;
+   cursor: pointer;
 }
 .contact-name p{
    margin: 5px 0;
@@ -157,6 +161,7 @@ i{
 }
 .user-chat:hover{
    background-color: rgb(236, 235, 235);
+   cursor: pointer;
 }
 .user-chat.active{
    background-color: rgb(204, 204, 204);
@@ -250,7 +255,7 @@ i{
    float: left;
    clear: both;
 }
-.message.send{
+.message.sent{
    background-color: #d5f9ba;
    float: right;
    clear: both;
