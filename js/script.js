@@ -274,39 +274,41 @@ const app = new Vue ({
             message: '',
             status: 'sent'
          };
-         console.log(newSMS);
          newSMS.message = this.newMessage.trim();
 
          if(newSMS.message.length > 0){
             this.contacts[this.userActive].messages.push(newSMS);
-            console.log(this.contacts[this.userActive].messages);
             this.newMessage = '';
         };
         
-        const newSmsBot = 
-        {
-            date: d.getDate() + '/' + (d.getMonth() + 1) + '/' + d.getFullYear() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds(),
-            message: 'Ok :)',
-            status: 'received'
-        };
-        console.log(newSmsBot);
-        // this.contacts[this.userActive].messages.push(newSmsBot)
-        
         setTimeout(() =>{
+            const newSmsBot = 
+            {
+                date: d.getDate() + '/' + (d.getMonth() + 1) + '/' + d.getFullYear() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds(),
+                message: 'Ok :)',
+                status: 'received'
+            };
             this.contacts[this.userActive].messages.push(newSmsBot);
         }, 1000);
-        
-        // fineTimeout(1000, this){
-        //     console.log(this);
-        //     console.log('ciao mondo');
-        //     console.log(this);
-        //      };
-        // setTimeout(fineTimeout, 1000, this);
-        // console.log(this.userActive);
-        // console.log(this.contacts);
-        // console.log(this.contacts[this.userActive].messages);
     },
-    
-    
+    searchName(){
+        for (const element of this.contacts) {
+            element.name.split('');
+            console.log(element.name.split(''));
+            for(let i = 0; i < this.searchUser.length; i++){
+                if(this.searchUser.split('')[i] === element.name.split('')[i]){
+                    element.visible = true
+                    console.log(element.visible);
+                }else{
+                    element.visible = false  
+                }
+            }
+        //     for (const letter of element.name.split('')[i]) {
+        //         console.log(letter);
+        //         if(letter == this.searchUser){
+        //     }
+        //   }
+    }
+}
 }
 })

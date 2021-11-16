@@ -41,6 +41,7 @@
             <input
               placeholder="Cerca o inizia una nuova chat" 
               v-model="searchUser"
+              @keyup.enter="searchName"
               type="text">
             <i class="fa-solid fa-magnifying-glass"></i>
           </div>
@@ -50,7 +51,8 @@
             <div  
               v-for="(contact, index) in contacts"
               class="user-chat"
-              @click="displayUser(index)">
+              @click="displayUser(index)"
+              v-if="contact.visible == true ? true : false">
               <img :src="`img/avatar${contact.avatar}.jpg`" alt="">
               <div class="text-user-chat">
                 <p>{{contact.name}}</p>
