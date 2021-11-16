@@ -17,7 +17,7 @@
         <div class="main-top">
           <div class="personal-user">
             <img class="user-img" src="img/avatar_io.jpg" alt="Francesco Lucco">
-            <h5>Nome Utente</h5>
+            <h5>Elisa Del Prete</h5>
           </div>
           <div class="top-icons">
             <i class="fa-solid fa-circle-notch"></i>
@@ -45,16 +45,21 @@
           </div>
 
           <div class="box-user-chat">
-            <div class="user-chat">
-              <img src="img/avatar_2.jpg" alt="">
+          <!-- **** Box da ciclare **** -->
+            <div  
+              v-for="(contact, index) in contacts"
+              class="user-chat">
+              <!-- <img src="img/avatar${{contact.avatar}}.jpg" alt=""> -->
+              <img :src="`img/avatar${contact.avatar}.jpg`" alt="">
               <div class="text-user-chat">
-                <p>Michele</p>
-                <p>Tutto fatto..</p>
+                <p>{{contact.name}}</p>
+                <p>{{contact.messages[contact.messages.length - 1].message}}</p>
               </div>
               <div class="data">
-                <span>fdfdfd</span>
+                <span>{{contact.messages[contact.messages.length - 1].date}}</span>
               </div>
             </div>
+          <!-- ************************* -->
           </div>
 
         </div>

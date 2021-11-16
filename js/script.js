@@ -1,4 +1,4 @@
-const app = new VTTCue({
+const app = new Vue ({
    
    el: '#app',
    
@@ -84,9 +84,9 @@ const app = new VTTCue({
                  }
              ],
          },
-      ]
+      ],
+      userActive: 0,
    },
+   // counterLastMsg: contacts[0].messages[messages.lenght - 1],
 
-   methods:{
-   }
 })

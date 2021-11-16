@@ -152,6 +152,7 @@ i{
 .user-chat{
    padding: 10px;
    border-top: 1px solid rgb(235, 227, 227);
+   height: 80px
 }
 .user-chat img{
    margin-left: 8px;
