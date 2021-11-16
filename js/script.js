@@ -86,9 +86,180 @@ const app = new Vue ({
                }
              ],
          },
+         {
+             name: 'Marco',
+             avatar: '_2',
+             visible: true,
+             messages: [
+               {
+               date: '10/01/2020 15:30:55',
+               message: 'Lo sai che ha apertouna nuova pizzeria?',
+               status: 'sent'
+               },
+               {
+                  date: '10/01/2020 15:50:00',
+                  message: 'Si, ma preferirei andare al cinema',
+                  status: 'received'
+               }
+             ],
+         },
+         {
+             name: 'Martina',
+             avatar: '_1',
+             visible: true,
+             messages: [
+               {
+               date: '10/01/2020 15:30:55',
+               message: 'Lo sai che ha apertouna nuova pizzeria?',
+               status: 'sent'
+               },
+               {
+                  date: '10/01/2020 15:50:00',
+                  message: 'Si, ma preferirei andare al cinema',
+                  status: 'received'
+               }
+             ],
+         },
+         {
+             name: 'Maria Luisa',
+             avatar: '_4',
+             visible: true,
+             messages: [
+               {
+               date: '10/01/2020 15:30:55',
+               message: 'Lo sai che ha apertouna nuova pizzeria?',
+               status: 'sent'
+               },
+               {
+                  date: '10/01/2020 15:50:00',
+                  message: 'Si, ma preferirei andare al cinema',
+                  status: 'received'
+               }
+             ],
+         },
+         {
+             name: 'Martino',
+             avatar: '_3',
+             visible: true,
+             messages: [
+               {
+               date: '10/01/2020 15:30:55',
+               message: 'Lo sai che ha apertouna nuova pizzeria?',
+               status: 'sent'
+               },
+               {
+                  date: '10/01/2020 15:50:00',
+                  message: 'Si, ma preferirei andare al cinema',
+                  status: 'received'
+               }
+             ],
+         },
+         {
+             name: 'Giovanni',
+             avatar: '_2',
+             visible: true,
+             messages: [
+               {
+               date: '10/01/2020 15:30:55',
+               message: 'Lo sai che ha apertouna nuova pizzeria?',
+               status: 'sent'
+               },
+               {
+                  date: '10/01/2020 15:50:00',
+                  message: 'Si, ma preferirei andare al cinema',
+                  status: 'received'
+               }
+             ],
+         },
+         {
+             name: 'Matteo',
+             avatar: '_1',
+             visible: true,
+             messages: [
+               {
+               date: '10/01/2020 15:30:55',
+               message: 'Lo sai che ha apertouna nuova pizzeria?',
+               status: 'sent'
+               },
+               {
+                  date: '10/01/2020 15:50:00',
+                  message: 'Si, ma preferirei andare al cinema',
+                  status: 'received'
+               }
+             ],
+         },
+         {
+             name: 'Elisa',
+             avatar: '_1',
+             visible: true,
+             messages: [
+               {
+               date: '10/01/2020 15:30:55',
+               message: 'Lo sai che ha apertouna nuova pizzeria?',
+               status: 'sent'
+               },
+               {
+                  date: '10/01/2020 15:50:00',
+                  message: 'Si, ma preferirei andare al cinema',
+                  status: 'received'
+               }
+             ],
+         },
+         {
+             name: 'Elisabetta',
+             avatar: '_2',
+             visible: true,
+             messages: [
+               {
+               date: '10/01/2020 15:30:55',
+               message: 'Lo sai che ha apertouna nuova pizzeria?',
+               status: 'sent'
+               },
+               {
+                  date: '10/01/2020 15:50:00',
+                  message: 'Si, ma preferirei andare al cinema',
+                  status: 'received'
+               }
+             ],
+         },
+         {
+             name: 'Andrea',
+             avatar: '_3',
+             visible: true,
+             messages: [
+               {
+               date: '10/01/2020 15:30:55',
+               message: 'Lo sai che ha apertouna nuova pizzeria?',
+               status: 'sent'
+               },
+               {
+                  date: '10/01/2020 15:50:00',
+                  message: 'Si, ma preferirei andare al cinema',
+                  status: 'received'
+               }
+             ],
+         },
+         {
+             name: 'Paola',
+             avatar: '_4',
+             visible: true,
+             messages: [
+               {
+               date: '10/01/2020 15:30:55',
+               message: 'Lo sai che ha apertouna nuova pizzeria?',
+               status: 'sent'
+               },
+               {
+                  date: '10/01/2020 15:50:00',
+                  message: 'Si, ma preferirei andare al cinema',
+                  status: 'received'
+               }
+             ],
+         },
       ],
       userActive: 0,
       newMessage: '',
+      searchUser: '',
    },
    methods: {
       displayUser(index){
@@ -110,7 +281,32 @@ const app = new Vue ({
             this.contacts[this.userActive].messages.push(newSMS);
             console.log(this.contacts[this.userActive].messages);
             this.newMessage = '';
-         }
-      }
-   }
+        };
+        
+        const newSmsBot = 
+        {
+            date: d.getDate() + '/' + (d.getMonth() + 1) + '/' + d.getFullYear() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds(),
+            message: 'Ok :)',
+            status: 'received'
+        };
+        console.log(newSmsBot);
+        // this.contacts[this.userActive].messages.push(newSmsBot)
+        
+        setTimeout(() =>{
+            this.contacts[this.userActive].messages.push(newSmsBot);
+        }, 1000);
+        
+        // fineTimeout(1000, this){
+        //     console.log(this);
+        //     console.log('ciao mondo');
+        //     console.log(this);
+        //      };
+        // setTimeout(fineTimeout, 1000, this);
+        // console.log(this.userActive);
+        // console.log(this.contacts);
+        // console.log(this.contacts[this.userActive].messages);
+    },
+    
+    
+}
 })
