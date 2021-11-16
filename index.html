@@ -89,7 +89,7 @@
           <div 
             v-for="(msg, index) in contacts[userActive].messages"
             class="message"
-            :class="contacts[userActive].messages[index].status === 'sent' ? 'sent' : 'received'">
+            :class="contacts[userActive].messages[index].status">
             <p>{{msg.message}}</p>
             <span>{{msg.date}}</span>
           </div>
@@ -100,7 +100,7 @@
           <i class="fa-regular fa-face-smile"></i>
           <input 
             v-model="newMessage"
-            @keyup.enter="addMessage(newMessage, userActive)"
+            @keyup.enter="addMessage()"
             type="text"
             placeholder="Scrivi un messaggio">
           <i class="fa-solid fa-microphone"></i>

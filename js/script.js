@@ -94,18 +94,23 @@ const app = new Vue ({
       displayUser(index){
          this.userActive = index;
       },
-      addMessage(newMessage, userActive){
+      addMessage(){
+         const d = new Date();
+
          const newSMS = 
          {
-            date: new Date,
+            date: d.getDate() + '/' + (d.getMonth() + 1) + '/' + d.getFullYear() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds(),
             message: '',
             status: 'sent'
          };
-         newSMS.message = newMessage;
+         console.log(newSMS);
+         newSMS.message = this.newMessage.trim();
 
-         this.contacts[userActive].messages.push(newSMS);
-         console.log(this.contacts[userActive].messages);
-         this.newMessage = '';
+         if(newSMS.message.length > 0){
+            this.contacts[this.userActive].messages.push(newSMS);
+            console.log(this.contacts[this.userActive].messages);
+            this.newMessage = '';
+         }
       }
    }
 })
