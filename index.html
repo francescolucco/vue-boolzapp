@@ -57,7 +57,7 @@
               <img :src="`img/avatar${contact.avatar}.jpg`" alt="">
               <div class="text-user-chat">
                 <p>{{contact.name}}</p>
-                <p>{{contact.messages[contact.messages.length - 1].message}}</p>
+                <p>{{getLastMessage(index)}}</p>
               </div>
               <div class="data">
                 <span>{{contact.messages[contact.messages.length - 1].date}}</span>
