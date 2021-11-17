@@ -11,31 +11,46 @@ const app = new Vue ({
             visible: true,
             messages: [
               {
-              date: '10/01/2020 15:30:55',
-              message: 'Penso che la chiari, quella che si è sposata a maggio con l’ingegnere ci debba dire qualcosaaaaa 🤰🏻😍',
-              status: 'received'
-              },
-              {
                  date: '10/01/2020 15:50:00',
-                 message: 'Yuppiiii💪🏼!',
+                 message: 'Ciao Elisa! Buongiorno :)',
                  status:'sent'
               },
               {
                  date: '10/01/2020 15:50:00',
-                 message: '#promise',
+                 message: 'Com è andata ieri sera?',
                  status: 'sent'
               },
               {
                   date: '10/01/2020 15:50:00',
-                  message: 'Allora le mantieni davvero 🤝',
+                  message: 'Ciao francii! Ieri sera è andata bene! Abbiamo fatto cenone a casa mia e dopo sono uscita! Te com’è andata? Sei a vr o belfiore? 😉',
                   status: 'received'
                },
                {
                   date: '10/01/2020 15:50:00',
-                  message: '🐍✌🏼',
+                  message: 'Dai bene, mi fa piacere :) Io sono a Belfiore, torno a vr dopo il corso',
                   status: 'sent'
-               }
-            ],
+               },
+               {
+                   date: '10/01/2020 15:50:00',
+                   message: 'Alla fine stasera ci aspettano per cena, facciamo pizzetta alle 20.45',
+                   status: 'sent'
+                },
+                {
+                    date: '10/01/2020 15:50:00',
+                    message: 'Ok ottimo! Io ora sono via con mia sorella e alle 11 mi trovo a quinzano con la vale e Tommy (coppia di Londra) a bere un caffè! Ti chiamo dopo pranzo che capiamo come organizzarci 😊',
+                    status: 'received'
+                 },
+                 {
+                     date: '10/01/2020 15:50:00',
+                     message: 'Benissimo✌🏼 Buona mattinata :)',
+                     status: 'sent'
+                    },
+                    {
+                        date: '10/01/2020 15:50:00',
+                        message: 'A te 👨🏻‍💻😉',
+                        status: 'received'
+                     },
+                ],
          },
          {
              name: 'Damiano Disperati',
