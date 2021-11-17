@@ -294,26 +294,13 @@ const app = new Vue ({
         },
         searchName(){
             for (const element of this.contacts) {
-                element.name.split('');
-                // console.log(element.name.split(''));
-                for(let i = 0; i < this.searchUser.length; i++){
-                    if(element.name.split('').includes(this.searchUser.split(''))){
-                        this.word.push(this.searchUser.split('')[i]);
-                        console.log(this.word);
+
+                if(element.name.toUpperCase().includes(this.searchUser.toUpperCase())){
                         element.visible = true
                         console.log(element.visible);
                         }else{
                             element.visible = false  
                         };
-                    // if(this.searchUser.split('')[i] === element.name.split('')[i]){
-                    //     this.word.push(this.searchUser.split('')[i]);
-                    //     console.log(this.word);
-                    //     element.visible = true
-                    //     console.log(element.visible);
-                    //     }else{
-                    //         element.visible = false  
-                    //     };
-                }
             }
         }
     }
