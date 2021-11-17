@@ -260,23 +260,24 @@ const app = new Vue ({
       userActive: 0,
       newMessage: '',
       searchUser: '',
+      word: [],
    },
-   methods: {
-      displayUser(index){
+    methods: {
+        displayUser(index){
          this.userActive = index;
-      },
-      addMessage(){
-         const d = new Date();
+        },
+        addMessage(){
+        const d = new Date();
 
-         const newSMS = 
-         {
+        const newSMS = 
+        {
             date: d.getDate() + '/' + (d.getMonth() + 1) + '/' + d.getFullYear() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds(),
             message: '',
             status: 'sent'
-         };
-         newSMS.message = this.newMessage.trim();
+        };
+        newSMS.message = this.newMessage.trim();
 
-         if(newSMS.message.length > 0){
+        if(newSMS.message.length > 0){
             this.contacts[this.userActive].messages.push(newSMS);
             this.newMessage = '';
         };
@@ -289,26 +290,31 @@ const app = new Vue ({
                 status: 'received'
             };
             this.contacts[this.userActive].messages.push(newSmsBot);
-        }, 1000);
-    },
-    searchName(){
-        for (const element of this.contacts) {
-            element.name.split('');
-            console.log(element.name.split(''));
-            for(let i = 0; i < this.searchUser.length; i++){
-                if(this.searchUser.split('')[i] === element.name.split('')[i]){
-                    element.visible = true
-                    console.log(element.visible);
-                }else{
-                    element.visible = false  
+            }, 1000);
+        },
+        searchName(){
+            for (const element of this.contacts) {
+                element.name.split('');
+                // console.log(element.name.split(''));
+                for(let i = 0; i < this.searchUser.length; i++){
+                    if(element.name.split('').includes(this.searchUser.split(''))){
+                        this.word.push(this.searchUser.split('')[i]);
+                        console.log(this.word);
+                        element.visible = true
+                        console.log(element.visible);
+                        }else{
+                            element.visible = false  
+                        };
+                    // if(this.searchUser.split('')[i] === element.name.split('')[i]){
+                    //     this.word.push(this.searchUser.split('')[i]);
+                    //     console.log(this.word);
+                    //     element.visible = true
+                    //     console.log(element.visible);
+                    //     }else{
+                    //         element.visible = false  
+                    //     };
                 }
             }
-        //     for (const letter of element.name.split('')[i]) {
-        //         console.log(letter);
-        //         if(letter == this.searchUser){
-        //     }
-        //   }
+        }
     }
-}
-}
 })
