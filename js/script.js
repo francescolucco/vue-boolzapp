@@ -479,35 +479,45 @@ const app = new Vue ({
       word: [],
    },
     methods: {
+
+        // Funzione per eliminare la schermata di inizio e per definire quale contatto deve essere "active" e quindi visualizzabile
         displayUser(index){
          this.userActive = index;
+         const windowStart = document.querySelector('.schermata-inizio');
+         windowStart.classList.add('hide');
         },
-        addMessage(){
-        const d = new Date();
 
+        // Funzione per aggiungere un nuovo messaggio tramite barra input in basso alla pagina
+        addMessage(){
+            
+            // const d = new Date();
         const newSMS = 
         {
-            date: d.getDate() + '/' + (d.getMonth() + 1) + '/' + d.getFullYear() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds(),
-            message: '',
+            date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
+            // date: d.getDate() + '/' + (d.getMonth() + 1) + '/' + d.getFullYear() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds(),
+            message: this.newMessage.trim(),
             status: 'sent'
         };
-        newSMS.message = this.newMessage.trim();
-
+        
+        // Controllo di validità (oltre al 'trim' già inserito)
         if(newSMS.message.length > 0){
             this.contacts[this.userActive].messages.push(newSMS);
             this.newMessage = '';
         };
         
+        // Messaggio BOT di risposta dopo un secondo: utilizzo arrow function per poter utilizzare al suo interno il "this"
         setTimeout(() =>{
             const newSmsBot = 
             {
-                date: d.getDate() + '/' + (d.getMonth() + 1) + '/' + d.getFullYear() + ' ' + d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds(),
+                date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
                 message: 'Ok :)',
                 status: 'received'
             };
             this.contacts[this.userActive].messages.push(newSmsBot);
             }, 1000);
         },
+
+        // Funzione di ricerca del nome-contatto utilizzando la proprietà includes(), valida anche per le stringhe
         searchName(){
             for (const element of this.contacts) {
                 if(element.name.toUpperCase().includes(this.searchUser.toUpperCase())){
@@ -517,10 +527,12 @@ const app = new Vue ({
                         };
             }
         },
+
+        // Funzione per visualizzare i primi 30 caratteri dell'ultimo messaggio inviato dall'utente
         getLastMessage(index){
             let lastMessage = this.contacts[index].messages[this.contacts[index].messages.length - 1].message;
-            if(lastMessage.length < 30){
-                lastMessage = lastMessage.substr(0,30)+"...";
+            if(lastMessage.length > 30){
+                lastMessage = lastMessage.substr(0,30)+". . .";
             }
             return lastMessage;
         }

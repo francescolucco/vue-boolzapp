@@ -14,10 +14,11 @@
     <main>
       <div class="main-left">
 
+        <!-- ***********NOME UTENTE************ -->
         <div class="main-top">
           <div class="personal-user">
             <img class="user-img" src="img/avatar_io.jpg" alt="Francesco Lucco">
-            <h5>Nome Utente</h5>
+            <h5>Francesco Lucco</h5>
           </div>
           <div class="top-icons">
             <i class="fa-solid fa-circle-notch"></i>
@@ -26,6 +27,7 @@
           </div>
         </div>
 
+        <!-- ***********ATTIVAZIONE NOTIFICHE************ -->
         <div class="new-notifications">
           <div class="circle-font">
             <i class="fa-solid fa-bell-slash"></i>
@@ -36,6 +38,7 @@
           </div>
         </div>
 
+        <!-- ***********BOX CONTATTI************ -->
         <div class="box-contacts">
           <div class="search">
             <input
@@ -47,7 +50,7 @@
           </div>
 
           <div class="box-user-chat">
-          <!-- **** Box da ciclare **** -->
+          <!-- ************* Box da ciclare ************** -->
             <div  
               v-for="(contact, index) in contacts"
               class="user-chat"
@@ -63,19 +66,23 @@
                 <span>{{contact.messages[contact.messages.length - 1].date}}</span>
               </div>
             </div>
-          <!-- ************************* -->
+          <!-- *************Fine Box da ciclare************* -->
           </div>
-
         </div>
-
       </div>
 
       <div class="main-right">
+        <!-- ********SCHERMATA INIZIALE******** -->
+        <div class="schermata-inizio">
+          <img src="img/inizio.png" alt="">
+        </div>
+
+        <!-- *********INFO UTENTE ATTIVO********** -->
         <div 
         class="main-top">
           <div class="personal-user">
-            <img class="user-img"  :src="`img/avatar${contacts[userActive].avatar}.jpg`" alt="">
-            <!-- <img class="user-img" :src="'img/avatar' + contacts[userActive].avatar + '.jpg'" :alt="contact.name"> -->
+            <img class="user-img"  :src="`img/avatar${contacts[userActive].avatar}.jpg`" :alt="contacts[userActive].name">
+            <!--Altro modo con concatenazione stringa: <img class="user-img" :src="'img/avatar' + contacts[userActive].avatar + '.jpg'" :alt="contacts[userActive].name"> -->
             <div class="contact-name">
               <h5>{{contacts[userActive].name}}</h5>
               <p>Ultimo accesso oggi alle {{contacts[userActive].messages[contacts[userActive].messages.length - 1].date}}</p>
@@ -88,30 +95,34 @@
           </div>
         </div>
 
-        <!-- ***************************** -->
         <div class="main-r-center">
+          <!-- ***********BOX-MESSAGGI DA CICLARE************** -->
           <div 
-            v-for="(msg, index) in contacts[userActive].messages"
-            class="message"
-            :class="contacts[userActive].messages[index].status">
+          v-for="(msg, index) in contacts[userActive].messages"
+          class="message"
+          :class="contacts[userActive].messages[index].status">
             <p>{{msg.message}}</p>
             <span>{{msg.date}}</span>
           </div>
+        <!-- ********** FINE BOX-MESSAGGI DA CICLARE********* -->
         </div>
-        <!-- ***************************** -->
-
+      
+        <!-- ********** ENTER NEW.MESSAGE********* -->
         <div class="main-r-bottom">
           <i class="fa-regular fa-face-smile"></i>
           <input 
-            v-model="newMessage"
-            @keyup.enter="addMessage()"
-            type="text"
-            placeholder="Scrivi un messaggio">
+          v-model="newMessage"
+          @keyup.enter="addMessage()"
+          type="text"
+          placeholder="Scrivi un messaggio">
           <i class="fa-solid fa-microphone"></i>
         </div>
+        <!-- **********FINE ENTER NEW.MESSAGE********* -->
       </div>
     </main>
   </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.7/dayjs.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
   <script src="js/script.js"></script>
 </body>
