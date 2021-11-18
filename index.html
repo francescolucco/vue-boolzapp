@@ -100,8 +100,8 @@
           <div 
           v-for="(msg, index) in contacts[userActive].messages"
           class="message"
-          :class="contacts[userActive].messages[index].status">
-          <!-- v-if="visibilityDropdown === true ? true : false"> -->
+          :class="contacts[userActive].messages[index].status"
+          v-if="messageDelete !== index">
 
             <p>{{msg.message}}</p>
             <span>{{msg.date}}</span>
@@ -112,7 +112,7 @@
                 class="fa-solid fa-angle-down">
                 </i>
                 <ul 
-                :class="`dropdown_menu${contacts[userActive].avatar}${index} hide`" aria-labelledby="navbarDropdownMenuLink">
+                :class="{'visible': visibilityDropdown === index }">
                   <li><a class="dropdown-item" href="#">Message info</a></li>
                   <li
                   @click="deleteMessage(index)">

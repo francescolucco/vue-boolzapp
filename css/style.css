@@ -287,6 +287,7 @@ i{
 }
 .message:hover .box-arrow-down{
    visibility: visible;
+
 }
 .box-dropdown-menu{
    position: relative;
@@ -302,10 +303,8 @@ i{
 .message.sent i{
    background-image: -webkit-radial-gradient(circle, rgb(213,249,186), rgba(213,249,186, 0.5));
 }
-.box-dropdown-menu ul.hide{
-   display: none;
-}
 .box-dropdown-menu ul{
+   display: none;
    position: absolute;
    top: 0px;
    right: 5px;
@@ -316,6 +315,9 @@ i{
    border-radius: 4px;
    overflow: hidden;
    z-index: 800;
+}
+.box-dropdown-menu ul.visible{
+   display: block;
 }
 .box-dropdown-menu ul li{
    width: 100%;
