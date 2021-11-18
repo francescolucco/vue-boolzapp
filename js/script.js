@@ -624,21 +624,14 @@ const app = new Vue ({
             }
             return lastMessage;
         },
+
        
         dropdownMenu(index){
             this.visibilityDropdown = index;
         },
 
         deleteMessage(index){
-            this.messageDelete = index -1;
+            this.contacts[this.userActive].messages.splice(index, 1);
         }
     }
 })
-//  v-for="(contact, index) in contacts"
-// class="user-chat"
-// :class="{'visible': messageDelete === index}"
-// @click="displayUser(index)"
-// v-if="contact.visible == true ? true : false">
-// <img :src="`img/avatar${contact.avatar}.jpg`" alt="">
-
-//                 :class="`dropdown_menu${contacts[userActive].avatar}${index} hide`" 
