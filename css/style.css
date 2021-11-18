@@ -231,6 +231,8 @@ i{
    justify-content: center;
    align-items: center;
    overflow: hidden;
+   z-index: 900;
+
 }
 .schermata-inizio.hide{
    display: none;
@@ -248,6 +250,7 @@ i{
 /*** Messaggi da ciclare ****/
 .message{
    width: 40%;
+   position: relative;
    font-size: 12px;
    font-weight: 600;
    padding: 14px 8px 5px 16px;
@@ -273,6 +276,61 @@ i{
    color: #a0a7aa;
    font-size: 9px;
    font-weight: normal;
+}
+.box-arrow-down{
+   position: absolute;
+   top: 8px;
+   right: 5px;
+   padding: 0;
+   margin: 0;
+   visibility: hidden;
+}
+.message:hover .box-arrow-down{
+   visibility: visible;
+}
+.box-dropdown-menu{
+   position: relative;
+   padding: 10px 0;
+}
+.message i{
+   position: absolute;
+   top: 0px;
+   right: 0px;
+   cursor: pointer;
+   text-align: right;
+}
+.message.sent i{
+   background-image: -webkit-radial-gradient(circle, rgb(213,249,186), rgba(213,249,186, 0.5));
+}
+.box-dropdown-menu ul.hide{
+   display: none;
+}
+.box-dropdown-menu ul{
+   position: absolute;
+   top: 0px;
+   right: 5px;
+   list-style: none;
+   width: 115px;
+   height: 80px;
+   background-color: white;
+   border-radius: 4px;
+   overflow: hidden;
+   z-index: 800;
+}
+.box-dropdown-menu ul li{
+   width: 100%;
+   height: 40px;
+   line-height: 40px;
+   text-align: center;
+   text-decoration: none;
+   cursor: pointer;
+}
+.box-dropdown-menu ul li:hover{
+   background-color: rgb(246, 246, 246);
+}
+.box-dropdown-menu ul li a{
+   color: black;
+   text-decoration: none;
 }
 .main-r-bottom{
    padding: 15px;

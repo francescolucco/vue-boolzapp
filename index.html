@@ -101,8 +101,30 @@
           v-for="(msg, index) in contacts[userActive].messages"
           class="message"
           :class="contacts[userActive].messages[index].status">
+          <!-- v-if="visibilityDropdown === true ? true : false"> -->
+
             <p>{{msg.message}}</p>
             <span>{{msg.date}}</span>
+            <div class="box-arrow-down">
+              <div class="box-dropdown-menu">
+                <i 
+                @click="dropdownMenu(index)"
+                class="fa-solid fa-angle-down">
+                </i>
+                <ul 
+                :class="`dropdown_menu${contacts[userActive].avatar}${index} hide`" aria-labelledby="navbarDropdownMenuLink">
+                  <li><a class="dropdown-item" href="#">Message info</a></li>
+                  <li
+                  @click="deleteMessage(index)">
+                  <a class="dropdown-item" href="#">Delete message</a>
+                </li>
+                </ul>
+              </div>
+            </div>
+            <!-- <select name="" id="select-message">
+              <option value="1">Message info</option>
+              <option value="2">Delete message</option>
+            </select> -->
           </div>
         <!-- ********** FINE BOX-MESSAGGI DA CICLARE********* -->
         </div>

@@ -477,6 +477,8 @@ const app = new Vue ({
       newMessage: '',
       searchUser: '',
       word: [],
+      visibilityDropdown: false,
+      visibilityMessage: false
    },
     methods: {
 
@@ -535,6 +537,16 @@ const app = new Vue ({
                 lastMessage = lastMessage.substr(0,30)+". . .";
             }
             return lastMessage;
+        },
+       
+        dropdownMenu(index){
+            let classBind = `.dropdown_menu${this.contacts[this.userActive].avatar}${index}`;
+            const dropMenu = document.querySelector(classBind) 
+            dropMenu.classList.remove('hide');
+        },
+
+        deleteMessage(index){
+            this.contacts[this.userActive].messages[index].remove();
         }
     }
 })
